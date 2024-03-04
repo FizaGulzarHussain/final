@@ -4,13 +4,27 @@ import streamlit as st
 import pandas as pd
 dataset=pd.read_csv('final_dataset.csv')
 
+st.markdown("""
+  <style>
+    /* Adjusting the height of the chatbot */
+    .flowise-chatbot {
+        height: 400px; /* Increase this value as needed */
+    }
 
+    /* Moving the chatbot to the bottom right */
+    .flowise-chatbot {
+        position: fixed;
+        bottom: 5spx;
+        right: 10px;
+    }
+  </style>
+""", unsafe_allow_html=True)
 def add_logo():
     st.markdown(
         """
         <style>
             [data-testid="stSidebarNav"] {
-                background: url(https://i.ibb.co/H2sSCfC/AI-Greener.png);
+                background: url(https://i.ibb.co/6nRsDh1/133-konicaminolta.jpg);
                 background-repeat: no-repeat;
                 padding-top: 120px;
                 background-position: 20px 20px;
@@ -83,7 +97,6 @@ def main():
     st.markdown('<p style="color:#008000; font-size:55px;">Co2 Emission Prediction Web App</p>', unsafe_allow_html=True)
     # giving a title
     # getting the input data from the user
-
     base_location_options = dataset['Base location'].unique()
     destination_options = dataset['Destination'].unique()
     mode_of_transport_options = dataset['Mode of transport'].unique()
@@ -91,20 +104,22 @@ def main():
     Base_location = st.selectbox('Base Location', base_location_options)
     Destination = st.selectbox('Destination Location', destination_options)
     Mode_of_transport = st.selectbox('Mode of Transport', mode_of_transport_options)
+    # Add the JavaScript code as a string
 
     
     # code for Prediction
     diagnosis = ''
-    
+
     # creating a button for Prediction
-    
+
     if st.button('Co2 (kg) Prediction Result'):
         diagnosis = co2_prediction(Base_location, Destination, Mode_of_transport)
-        
-        
     st.success(diagnosis)
+
+        
+
     
-    
+
     
     
     

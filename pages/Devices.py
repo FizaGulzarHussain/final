@@ -5,7 +5,7 @@ def add_logo():
         """
         <style>
             [data-testid="stSidebarNav"] {
-                background: url(https://i.ibb.co/H2sSCfC/AI-Greener.png);
+                background: url(https://i.ibb.co/6nRsDh1/133-konicaminolta.jpg);
                 background-repeat: no-repeat;
                 padding-top: 120px;
                 background-position: 20px 20px;
